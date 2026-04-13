@@ -1,40 +1,30 @@
 import java.util.*;
 public class TrainConsistManagementApp{
     public static void main(String[] args){
-        System.out.println("======================================");
-        System.out.println("UC19 - Binary Search for Bogie ID");
-        System.out.println("======================================");
-
-        String[] bogieIds = {"BG101","BG205","BG309","BG412","BG550"};
-
-        Arrays.sort(bogieIds);
-        String key = "BG309";
-        System.out.println("\nSorted Bogie IDs:");
-        for (String id : bogieIds){
-            System.out.println(id);
+        System.out.println("==========================================");
+        System.out.println("UC20 - Exception Handling During Search");
+        System.out.println("==========================================");
+        System.out.println();
+        String[] bogieIds = {};
+        String searchId = "BG101";
+        if (bogieIds.length == 0){
+            throw new IllegalStateException("No bogies available in train. Cannot perform search.");
         }
         boolean found = false;
-        int low = 0, high = bogieIds.length - 1;
-        while (low <= high){
-            int mid = low + (high - low) / 2;
-            if (bogieIds[mid].compareTo(key) == 0){
+        for (String id : bogieIds){
+            if (id.equals(searchId)){
                 found = true;
                 break;
             }
-            else if (bogieIds[mid].compareTo(key) > 0){
-                high = mid - 1;
-            }
-            else{
-                low = mid + 1;
-            }
         }
-
-        if(found){
-            System.out.println("\nBogie " +key+ " found using Binary Search.");
+        if (found){
+            System.out.println("\nBogie " +searchId+ " found using search operation.");
         }
         else{
-            System.out.println("\nBogie " +key+ " not found using Binary Search.");
+            System.out.println("\nBogie " +searchId+ " not found using search operation.");
         }
-        System.out.println("\nUC19 search completed....");
+        System.out.println("\nUC20 execution completed...");
     }
 }
+
+
